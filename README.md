@@ -49,6 +49,19 @@ Build order: Home → Faculty Development → Students → About → Media (new)
 
 Calls to action on Home: Hero (Try it in your class), Section 4 (Try it in your class), Section 6 (Join the pilot, Try the check-in yourself, syllabus form).
 
+### Students, `/students/`
+
+| Name | File | ID | Background | Plan | Status |
+|---|---|---|---|---|---|
+| Hero | `00-hero.html` | cm-students-00-hero | white | Fix both buttons (today "Start with what feels heavy" points to #join-CAP and the PDF button to the faculty syllabus form). Add a Doing/Being panel of the eight parts | Code ready |
+| Section 1 | `01-eight-parts.html` | cm-students-01-parts | cream | Eight parts with descriptions in the Doing/Being grid, brand colors; PDF link. Fix "Purposes" → "Purpose"; remove the stray "1" | To do |
+| Section 2 | `02-check-in-intro.html` | cm-students-02-checkin | white | Short heading and how-to above the check-in: 40 statements, about 5 minutes, results right away, optional class code (professors see class totals only) | To do |
+| Check-in | `checkin-iframe.standalone.html` | `check-in` on its Grigora Section | white | Stays as is; the hero button jumps here | Live |
+| Section 3 | `03-your-information.html` | cm-students-03-privacy | mist | "Your information is yours." Update "When the class check-in launches" (it's live). Add the privacy policy link and the 988 line | To do |
+| Section 4 | `04-in-class.html` | cm-students-04-class | cream | Class check-in is live, not "2-minute pilot". Word cloud image gets alt text. "Share this with someone you care **about**". Small link for professors to Join the pilot | To do |
+
+Also via the Grigora connection: the page's search description says "nothing saved," which is no longer accurate (anonymous scores are saved). Proposed: "Take a free, private check-in across eight parts of college life and see your results right away. No name needed."
+
 ### Faculty Development, `/facultydevelopment/`
 
 Next. Includes the 35-second demo video (see `drafts/classroom-with-demo-video.html`; poster in `assets/`).
