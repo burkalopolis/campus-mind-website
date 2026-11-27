@@ -53,7 +53,7 @@ Calls to action on Home: Hero (Try it in your class), Section 4 (Try it in your 
 
 | Name | File | ID | Background | Plan | Status |
 |---|---|---|---|---|---|
-| Hero | `00-hero.html` | cm-students-00-hero | white | Fix both buttons (today "Start with what feels heavy" points to #join-CAP and the PDF button to the faculty syllabus form). Add a Doing/Being panel of the eight parts | Live |
+| Hero | `00-hero.html` | cm-students-00-hero | white | Fix both buttons (today "Start with what feels heavy" points to #join-CAP and the PDF button to the faculty syllabus form). Wheel of all eight parts with short definitions (whole-person framework) | Live; wheel revision ready (v1.10) |
 | Section 1 | `01-eight-parts.html` | cm-students-01-parts | cream | Eight parts with descriptions in the Doing/Being grid, brand colors; PDF link | Live |
 | Section 2 | `02-check-in.html` | `check-in` (also set on its Grigora Section) | white | Heading, how-to and class-code note, with the check-in iframe in the same block. Replaces the separate iframe block | Live |
 | Section 3 | `03-your-information.html` | cm-students-03-privacy | mist | Three cards updated for the live check-in (no names; professor sees class totals only, at 5+; only anonymous totals, no flags), privacy policy link, 988 line | Code ready |

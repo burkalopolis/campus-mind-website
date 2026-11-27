@@ -12,3 +12,4 @@
 - Students hero live. Section 1 (eight parts in Doing/Being columns with brand colors) ready; styles v1.8.
 - Students section 2: heading and check-in iframe combined in one block (id check-in); styles v1.9.
 - Students section 3: privacy cards updated for the live check-in, privacy policy link, 988 line.
+- Students hero: Doing/Being panel replaced by a wheel of all eight parts with short definitions, introducing the whole-person framework first; styles v1.10.
