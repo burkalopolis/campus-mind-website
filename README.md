@@ -33,7 +33,7 @@ Why each block carries its own styles: Grigora's Custom HTML block doesn't pick 
 
 ## Page and section index
 
-Build order: Home → Faculty Development → Students → About → Media (new). Blog needs no update.
+Status (Nov 27, 2026): Home, Students, About and Faculty Development are live as coded sections. Next: Media (new page). Blog needs no update.
 
 ### Home (Faculty), `/`
 
@@ -54,11 +54,11 @@ Calls to action on Home: Hero (Try it in your class), Section 4 (Try it in your 
 
 | Name | File | ID | Background | Plan | Status |
 |---|---|---|---|---|---|
-| Hero | `00-hero.html` | cm-students-00-hero | white | Fix both buttons (today "Start with what feels heavy" points to #join-CAP and the PDF button to the faculty syllabus form). Wheel of all eight parts with short definitions (whole-person framework) | Live; wheel revision ready (v1.10) |
+| Hero | `00-hero.html` | cm-students-00-hero | white | Fix both buttons (today "Start with what feels heavy" points to #join-CAP and the PDF button to the faculty syllabus form). Wheel of all eight parts with short definitions (whole-person framework) | Live |
 | Section 1 | `01-eight-parts.html` | cm-students-01-parts | cream | Eight parts with descriptions in the Doing/Being grid, brand colors; PDF link | Live |
 | Section 2 | `02-check-in.html` | `check-in` (also set on its Grigora Section) | white | Heading, how-to and class-code note, with the check-in iframe in the same block. Replaces the separate iframe block | Live |
 | Section 3 | `03-your-information.html` | cm-students-03-privacy | mist | Three cards updated for the live check-in (no names; professor sees class totals only, at 5+; only anonymous totals, no flags), privacy policy link, 988 line | Live |
-| Section 4 | `04-in-class.html` | cm-students-04-class | cream | Class check-in is live, not "2-minute pilot". Word cloud image gets alt text. "Share this with someone you care **about**". Small link for professors to Join the pilot | To do |
+| Section 4 | `04-in-class.html` | cm-students-04-class | cream | Class check-in is live, not "2-minute pilot". Word cloud image gets alt text. "Share this with someone you care **about**". Small link for professors to Join the pilot | Live |
 
 Also via the Grigora connection: the page's search description says "nothing saved," which is no longer accurate (anonymous scores are saved). Proposed: "Take a free, private check-in across eight parts of college life and see your results right away. No name needed."
 
@@ -66,11 +66,11 @@ Also via the Grigora connection: the page's search description says "nothing sav
 
 | Name | File | ID | Background | Notes | Status |
 |---|---|---|---|---|---|
-| Hero | `00-hero.html` | cm-about-00-hero | white | Approved copy; second sentence of the headline in blue | Code ready |
-| Section 1 | `01-how-we-got-here.html` | cm-about-01-story | cream | Story, statement, three facts with icons, research sources | Code ready |
-| Section 2 | `02-what-we-believe.html` | cm-about-02-beliefs | mist | Four cards (2×2); "Students own their story" links to /students/ | Code ready |
-| Section 3 | `03-who-we-are.html` | cm-about-03-team | white | Founder card (photo, bio, quote) and three advisor cards | Code ready |
-| Section 4 | `04-programs-and-contact.html` | cm-about-04-contact | cream | USI bootcamp now "completed". Let's talk: Join the pilot (primary), syllabus statement (secondary), two email links | Code ready |
+| Hero | `00-hero.html` | cm-about-00-hero | white | Approved copy; second sentence of the headline in blue | Live |
+| Section 1 | `01-how-we-got-here.html` | cm-about-01-story | cream | Story, statement, three facts with icons, research sources | Live |
+| Section 2 | `02-what-we-believe.html` | cm-about-02-beliefs | mist | Four cards (2×2); "Students own their story" links to /students/ | Live |
+| Section 3 | `03-who-we-are.html` | cm-about-03-team | white | Founder card (photo, bio, quote) and three advisor cards | Live |
+| Section 4 | `04-programs-and-contact.html` | cm-about-04-contact | cream | USI bootcamp now "completed". Let's talk: Join the pilot (primary), syllabus statement (secondary), two email links | Live |
 
 The "Completed NSF I-Corps · UC Davis" badge and footer stay native.
 
@@ -78,17 +78,26 @@ The "Completed NSF I-Corps · UC Davis" badge and footer stay native.
 
 | Name | File | ID | Background | Notes | Status |
 |---|---|---|---|---|---|
-| Hero | `00-hero.html` | cm-fd-00-hero | white | Try the demo (campusmind.io), Watch the 35-second demo (jumps to Section 1) | Code ready |
-| Section 1 | `01-demo.html` | `cm-fd-01-demo` (also set on its Grigora Section) | cream | Demo video + three steps + Try it in your class | Code ready (video and poster from Grigora Files; replaces the native video element) |
-| Section 2 | `02-what-we-heard.html` | cm-fd-02-heard | white | Four patterns from interviews, 2×2 | Code ready |
-| Section 3 | `03-ways-to-start.html` | cm-fd-03-start | mist | Syllabus statement (now), class check-in (live in pilot), weekly (coming next); Join the pilot, syllabus statement, handout PDF | Code ready |
-| Section 4 | `04-reach-early.html` | cm-fd-04-early | white | Classroom and transitions, nursing quote | Code ready |
-| Section 5 | `05-see-your-class.html` | cm-fd-05-results | cream | What faculty see; eight-parts animation | Code ready |
-| Section 6 | `06-advisory-panel.html` | cm-fd-06-cap | mist | CAP intro; leads into the native form | Code ready |
+| Hero | `00-hero.html` | cm-fd-00-hero | white | Try the demo (campusmind.io), Watch the 35-second demo (jumps to Section 1) | Live |
+| Section 1 | `01-demo.html` | `cm-fd-01-demo` (also set on its Grigora Section) | cream | Demo video + three steps + Try it in your class | Live |
+| Section 2 | `02-what-we-heard.html` | cm-fd-02-heard | white | Four patterns from interviews, 2×2 | Live |
+| Section 3 | `03-ways-to-start.html` | cm-fd-03-start | mist | Syllabus statement (now), class check-in (live in pilot), weekly (coming next); Join the pilot, syllabus statement, handout PDF | Live |
+| Section 4 | `04-reach-early.html` | cm-fd-04-early | white | Classroom and transitions, nursing quote | Live |
+| Section 5 | `05-see-your-class.html` | cm-fd-05-results | cream | What faculty see; eight-parts animation | Live |
+| Section 6 | `06-advisory-panel.html` | cm-fd-06-cap | mist | CAP intro; leads into the native form | Live |
 | CAP form | native Grigora form | `join-CAP` | mist | Stays native | Keep |
-| Section 7 | `07-closing-cta.html` | cm-fd-07-cta | white | Join the pilot, Join the CAP, share with a colleague | Code ready |
+| Section 7 | `07-closing-cta.html` | cm-fd-07-cta | white | Join the pilot, Join the CAP, share with a colleague | Live |
 
 ### Other pages
 
 - Blog: `sections/blog/archive.standalone.html` (archive by month).
 - Students: `sections/students/checkin-iframe.standalone.html` (check-in embed; a resize-to-fit script is a possible upgrade).
+
+## Later
+
+- **Text widths:** headings run wider than the text under them (e.g. Students check-in, Faculty Development sections). Pick one rule for heading and subtext width and apply it across pages.
+- **Home syllabus form (native):** the "I'm also interested in the pilot" checkbox sits far right of the email field; move it under the field in Grigora.
+- **Search descriptions** via the Grigora connection: Students ("nothing saved" is outdated) and About (copy ready in the About Page doc).
+- **Statuses to confirm:** weekly check-in ("Coming next"); class trends and end-of-term summary ("Coming during the pilot").
+- Media page (new), redirects for old pages (/demo, /framework, /institution, /aboutold), Resend automation for the syllabus statement, hosting `cm-web.css` on campusmind.io.
+
