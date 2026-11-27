@@ -56,7 +56,7 @@ Calls to action on Home: Hero (Try it in your class), Section 4 (Try it in your 
 | Hero | `00-hero.html` | cm-students-00-hero | white | Fix both buttons (today "Start with what feels heavy" points to #join-CAP and the PDF button to the faculty syllabus form). Wheel of all eight parts with short definitions (whole-person framework) | Live; wheel revision ready (v1.10) |
 | Section 1 | `01-eight-parts.html` | cm-students-01-parts | cream | Eight parts with descriptions in the Doing/Being grid, brand colors; PDF link | Live |
 | Section 2 | `02-check-in.html` | `check-in` (also set on its Grigora Section) | white | Heading, how-to and class-code note, with the check-in iframe in the same block. Replaces the separate iframe block | Live |
-| Section 3 | `03-your-information.html` | cm-students-03-privacy | mist | Three cards updated for the live check-in (no names; professor sees class totals only, at 5+; only anonymous totals, no flags), privacy policy link, 988 line | Code ready |
+| Section 3 | `03-your-information.html` | cm-students-03-privacy | mist | Three cards updated for the live check-in (no names; professor sees class totals only, at 5+; only anonymous totals, no flags), privacy policy link, 988 line | Live |
 | Section 4 | `04-in-class.html` | cm-students-04-class | cream | Class check-in is live, not "2-minute pilot". Word cloud image gets alt text. "Share this with someone you care **about**". Small link for professors to Join the pilot | To do |
 
 Also via the Grigora connection: the page's search description says "nothing saved," which is no longer accurate (anonymous scores are saved). Proposed: "Take a free, private check-in across eight parts of college life and see your results right away. No name needed."
