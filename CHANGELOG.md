@@ -14,3 +14,4 @@
 - Students section 3: privacy cards updated for the live check-in, privacy policy link, 988 line.
 - Students hero: Doing/Being panel replaced by a wheel of all eight parts with short definitions, introducing the whole-person framework first; styles v1.10.
 - Students section 4 (In class): live class check-in, about 5 minutes, share email fixed ("someone you care about"), word cloud alt text, professor link to Join the pilot.
+- Eight-parts PDF moved from Google Drive to Grigora Files (root-files/campus-mind-eight-parts.pdf). Students hero and Section 1 link to it. Downloads count in GA4 as file_download (Enhanced measurement; a small onclick sends the event if the block runs in a frame).

@@ -26,6 +26,7 @@ Why each block carries its own styles: Grigora's Custom HTML block doesn't pick 
 - Grigora overrides margins on `<p>` elements. Use `<div>` (or `!important`) for anything that needs outer spacing or centering.
 - Links that leave the page use `target="_top"`.
 - For in-page jump links, also set the same ID on the native Grigora Section that holds the block.
+- Files (PDFs) live in Grigora Files, root-files/. GA4 counts `.pdf` link clicks as `file_download`; PDF links also carry a small onclick that sends the event to the parent page when the block runs in a frame (no double count otherwise).
 - Icons are inline SVG, outlined at a 2px stroke, drawn for Campus Mind.
 - Iframes only for the app (the check-in at campusmind.io). Words go in coded sections so Google indexes them.
 - Header and footer stay native Grigora.
