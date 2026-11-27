@@ -19,3 +19,4 @@
 - Styles v1.12: paragraph spacing forced (Grigora strips it) and a shared text width (`.measure`, 820px) so text, facts and the sources box line up. Applied to About hero, Section 1 and Section 4.
 - About Section 3: founder quote changed from blockquote to div (Grigora's blockquote style added italics and an overlapping quote mark); bio runs the full width of the card. Styles v1.13.
 - Faculty Development rebuilt as eight coded sections (styles v1.14). Demo video moves near the top; hero leads with Try the demo and Watch the demo; CAP moves lower; tiers and results updated for the live class check-in.
+- Faculty Development Section 1 filled with the uploaded demo video and poster, plus a jump-on-load script (Grigora builds the page after the browser's own jump). Home hero link now goes to the Faculty Development demo. Checked live: coded blocks are not in frames, so GA sees clicks directly.

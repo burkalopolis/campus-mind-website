@@ -141,12 +141,19 @@
         <div class="muted">You see class totals only, never anyone's answers.</div>
       </div>
       <figure class="video">
-        <video src="VIDEO_URL" poster="POSTER_URL" autoplay muted loop playsinline controls preload="metadata" aria-label="35-second demo of the Campus Mind class check-in: students join with a QR code, and the class sees anonymous totals once 5 have checked in."></video>
+        <video src="https://prod.grigora-cdn.com/projects/937b6570-2ff5-40bb-9eab-cf1750675050/videos/2026/11/27/facultyclasscheckindemo-zi6nvv2t.mp4" poster="https://prod.grigora-cdn.com/projects/937b6570-2ff5-40bb-9eab-cf1750675050/images/2026/11/27/facultyclasscheckindemothumbnail-mspjyz-1600.avif" autoplay muted loop playsinline controls preload="metadata" aria-label="35-second demo of the Campus Mind class check-in: students join with a QR code, and the class sees anonymous totals once 5 have checked in."></video>
         <figcaption>Sample data · 35 seconds · captions, no sound</figcaption>
       </figure>
     </div>
   </div>
 </section>
 <script>
-(function(){var v=document.querySelector('#cm-fd-01-demo video');if(v&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}})();
+(function(){
+  var v=document.querySelector('#cm-fd-01-demo video');
+  if(v&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}
+  /* Grigora builds the page after the browser tries the jump, so retry the jump once the page has loaded. */
+  function jump(){if(location.hash==='#cm-fd-01-demo'){var s=document.getElementById('cm-fd-01-demo');if(s)s.scrollIntoView({block:'start'});}}
+  window.addEventListener('load',function(){setTimeout(jump,300);});
+  window.addEventListener('hashchange',jump);
+})();
 </script>

@@ -39,7 +39,7 @@ Build order: Home → Faculty Development → Students → About → Media (new)
 
 | Name | File | ID | Background | Status |
 |---|---|---|---|---|
-| Hero | `00-hero.html` | cm-home-01-hero | white | Live. Link "See it in a class" → Section 4; switch to the Faculty Development demo video once it exists |
+| Hero | `00-hero.html` | cm-home-01-hero | white | Live. "Watch the 35-second demo →" goes to /facultydevelopment/#cm-fd-01-demo |
 | Section 1 | `01-familiar.html` | cm-home-02-familiar | cream | Live |
 | Section 2 | `02-how-it-works.html` | cm-home-03-how | white | Live |
 | Section 3 | `03-who-sees-what.html` | cm-home-04-who-sees | mist | Live |
@@ -79,7 +79,7 @@ The "Completed NSF I-Corps · UC Davis" badge and footer stay native.
 | Name | File | ID | Background | Notes | Status |
 |---|---|---|---|---|---|
 | Hero | `00-hero.html` | cm-fd-00-hero | white | Try the demo (campusmind.io), Watch the 35-second demo (jumps to Section 1) | Code ready |
-| Section 1 | `01-demo.html` | `cm-fd-01-demo` (also set on its Grigora Section) | cream | Demo video + three steps + Try it in your class | Waiting on the video upload (VIDEO_URL, POSTER_URL) |
+| Section 1 | `01-demo.html` | `cm-fd-01-demo` (also set on its Grigora Section) | cream | Demo video + three steps + Try it in your class | Code ready (video and poster from Grigora Files; replaces the native video element) |
 | Section 2 | `02-what-we-heard.html` | cm-fd-02-heard | white | Four patterns from interviews, 2×2 | Code ready |
 | Section 3 | `03-ways-to-start.html` | cm-fd-03-start | mist | Syllabus statement (now), class check-in (live in pilot), weekly (coming next); Join the pilot, syllabus statement, handout PDF | Code ready |
 | Section 4 | `04-reach-early.html` | cm-fd-04-early | white | Classroom and transitions, nursing quote | Code ready |
