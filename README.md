@@ -76,7 +76,17 @@ The "Completed NSF I-Corps · UC Davis" badge and footer stay native.
 
 ### Faculty Development, `/facultydevelopment/`
 
-Next. Includes the 35-second demo video (see `drafts/classroom-with-demo-video.html`; poster in `assets/`).
+| Name | File | ID | Background | Notes | Status |
+|---|---|---|---|---|---|
+| Hero | `00-hero.html` | cm-fd-00-hero | white | Try the demo (campusmind.io), Watch the 35-second demo (jumps to Section 1) | Code ready |
+| Section 1 | `01-demo.html` | `cm-fd-01-demo` (also set on its Grigora Section) | cream | Demo video + three steps + Try it in your class | Waiting on the video upload (VIDEO_URL, POSTER_URL) |
+| Section 2 | `02-what-we-heard.html` | cm-fd-02-heard | white | Four patterns from interviews, 2×2 | Code ready |
+| Section 3 | `03-ways-to-start.html` | cm-fd-03-start | mist | Syllabus statement (now), class check-in (live in pilot), weekly (coming next); Join the pilot, syllabus statement, handout PDF | Code ready |
+| Section 4 | `04-reach-early.html` | cm-fd-04-early | white | Classroom and transitions, nursing quote | Code ready |
+| Section 5 | `05-see-your-class.html` | cm-fd-05-results | cream | What faculty see; eight-parts animation | Code ready |
+| Section 6 | `06-advisory-panel.html` | cm-fd-06-cap | mist | CAP intro; leads into the native form | Code ready |
+| CAP form | native Grigora form | `join-CAP` | mist | Stays native | Keep |
+| Section 7 | `07-closing-cta.html` | cm-fd-07-cta | white | Join the pilot, Join the CAP, share with a colleague | Code ready |
 
 ### Other pages
 
