@@ -67,6 +67,14 @@
 .cmw .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--white);border:1px solid var(--line);font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:15px;font-weight:700;color:var(--night)}
 .cmw .dot{flex:0 0 12px;width:12px;height:12px;border-radius:999px}
 .cmw .d-physical{background:#D4897A}.cmw .d-emotional{background:#E8B484}.cmw .d-intellectual{background:#E8D98A}.cmw .d-social{background:#94C48A}.cmw .d-spiritual{background:#90C8D8}.cmw .d-environmental{background:#8A9AC4}.cmw .d-occupational{background:#A886B8}.cmw .d-financial{background:#D4A0B8}
+.cmw .parts{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:32px}
+.cmw .part-group h3{margin:0 0 4px}
+.cmw .part-list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:12px}
+.cmw .part{display:flex;gap:14px;align-items:stretch;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.cmw .part .bar{flex:0 0 6px;border-radius:999px}
+.cmw .part strong{display:block;font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:17px;color:var(--night)}
+.cmw .part .desc{display:block;font-size:15px;color:var(--ink)}
+@media (max-width:900px){.cmw .parts{grid-template-columns:1fr;gap:28px}}
 </style>
 <section class="cmw bg-mist" id="cm-home-04-who-sees" aria-labelledby="cm-home-who-title">
   <div class="wrap">
