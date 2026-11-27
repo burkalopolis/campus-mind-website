@@ -1,0 +1,239 @@
+<!--
+  Campus Mind – Blog Archive by Month
+  Paste this whole block into a Custom HTML / code block on the /blog/ page
+  (place it at the very bottom of the page content).
+
+  Layout options (change data-layout on the div below):
+    auto    (default) inline block at the bottom on normal/small screens; on wide
+            screens (>= 1360px) the same block becomes a fixed right-hand panel.
+    inline  bottom of page only, all screen sizes
+    sidebar right-hand panel only (wide screens); hidden on small screens
+-->
+
+<div id="cm-archive" class="cm-archive" data-layout="auto"
+     data-sitemap="/post-sitemap.xml" data-open-latest="true">
+  <div class="cm-archive__head">
+    <h2 class="cm-archive__title">Blog Archive</h2>
+    <div class="cm-archive__tools">
+      <button type="button" class="cm-archive__btn" data-cm="expand">Expand all</button>
+      <button type="button" class="cm-archive__btn" data-cm="collapse">Collapse all</button>
+    </div>
+  </div>
+  <p class="cm-archive__status" role="status" aria-live="polite">Loading archive…</p>
+  <div class="cm-archive__list"></div>
+  <noscript>
+    <p><a href="/post-sitemap.xml">Browse every Campus Mind blog post (sitemap)</a></p>
+  </noscript>
+</div>
+
+<style>
+  .cm-archive {
+    --cm-fg: #1f2933;
+    --cm-muted: #616e7c;
+    --cm-line: #e4e7eb;
+    --cm-bg: #ffffff;
+    --cm-accent: #2f6fed;
+    --cm-hover: #f5f7fa;
+    box-sizing: border-box;
+    max-width: 960px;
+    margin: 48px auto 32px;
+    padding: 24px;
+    background: var(--cm-bg);
+    color: var(--cm-fg);
+    border: 1px solid var(--cm-line);
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: inherit;
+  }
+  .cm-archive *, .cm-archive *::before, .cm-archive *::after { box-sizing: border-box; }
+  .cm-archive__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+  .cm-archive__title { margin: 0; font-size: 1.35rem; line-height: 1.3; }
+  .cm-archive__tools { display: flex; gap: 8px; }
+  .cm-archive__btn {
+    appearance: none; background: transparent; color: var(--cm-accent);
+    border: 1px solid var(--cm-line); border-radius: 999px; padding: 4px 12px;
+    font: inherit; font-size: .85rem; cursor: pointer;
+  }
+  .cm-archive__btn:hover { background: var(--cm-hover); }
+  .cm-archive__btn:focus-visible, .cm-archive summary:focus-visible, .cm-archive a:focus-visible {
+    outline: 2px solid var(--cm-accent); outline-offset: 2px;
+  }
+  .cm-archive__status { margin: 4px 0 12px; color: var(--cm-muted); font-size: .9rem; }
+  .cm-archive__status:empty { display: none; }
+  .cm-archive__year {
+    margin: 20px 0 6px; font-size: .8rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--cm-muted);
+  }
+  .cm-archive details { border-top: 1px solid var(--cm-line); }
+  .cm-archive details:last-of-type { border-bottom: 1px solid var(--cm-line); }
+  .cm-archive summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 12px 8px; cursor: pointer; list-style: none; font-weight: 600;
+  }
+  .cm-archive summary::-webkit-details-marker { display: none; }
+  .cm-archive summary:hover { background: var(--cm-hover); }
+  .cm-archive summary::after {
+    content: ""; flex: 0 0 auto; width: 8px; height: 8px;
+    border-right: 2px solid var(--cm-muted); border-bottom: 2px solid var(--cm-muted);
+    transform: rotate(45deg); transition: transform .15s ease;
+  }
+  .cm-archive details[open] > summary::after { transform: rotate(-135deg); }
+  .cm-archive__count {
+    margin-left: auto; margin-right: 4px; font-weight: 400; font-size: .85rem; color: var(--cm-muted);
+  }
+  .cm-archive ul { list-style: none; margin: 0; padding: 0 8px 12px; }
+  .cm-archive li { margin: 0; padding: 6px 0; }
+  .cm-archive li a { color: var(--cm-accent); text-decoration: none; }
+  .cm-archive li a:hover { text-decoration: underline; }
+  .cm-archive li time { display: block; font-size: .8rem; color: var(--cm-muted); }
+
+  @media (prefers-reduced-motion: reduce) { .cm-archive summary::after { transition: none; } }
+
+  /* Wide screens: sticky right-hand panel (layout = auto | sidebar) */
+  @media (min-width: 1360px) {
+    .cm-archive[data-layout="auto"],
+    .cm-archive[data-layout="sidebar"] {
+      position: fixed; top: 110px; right: 20px; width: 300px; max-height: calc(100vh - 140px);
+      margin: 0; padding: 16px; overflow-y: auto; z-index: 50;
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    }
+  }
+  /* Narrow screens: sidebar-only layout is hidden */
+  @media (max-width: 1359px) {
+    .cm-archive[data-layout="sidebar"] { display: none; }
+  }
+</style>
+
+<script>
+(function () {
+  var root = document.getElementById('cm-archive');
+  if (!root || root.dataset.cmInit) return;
+  root.dataset.cmInit = '1';
+
+  var SITEMAP = root.dataset.sitemap || '/post-sitemap.xml';
+  var OPEN_LATEST = root.dataset.openLatest !== 'false';
+  var listEl = root.querySelector('.cm-archive__list');
+  var statusEl = root.querySelector('.cm-archive__status');
+
+  /* ---- Shared data layer: bundled post list + auto-detect of new posts ---- */
+  var IMG = 'https://prod.grigora-cdn.com/projects/937b6570-2ff5-40bb-9eab-cf1750675050/images/';
+  var SEED = "academic-recovery-plans-turning-probation-into-retention-opportunity|2026-09-18|Academic Recovery Plans: Turning Probation Into a Retention Opportunity\nimposter-syndrome-in-college-students-belonging|2026-09-13|Imposter Syndrome in College: Helping Students Believe They Belong\nmid-semester-pulse-surveys-student-disengagement-retention|2026-09-04|Mid-Semester Pulse Surveys: Catching Disengagement Before It Becomes Dropout\nlearning-communities-cohort-models-first-year-retention|2026-08-29|Learning Communities That Work: How Cohort Models Boost First-Year Retention\nsummer-melt-prevention-keeping-admitted-students-enrolled|2026-08-21|Summer Melt Prevention: Keeping Admitted Students Enrolled Through Move-In Day\nstudent-engagement-platforms-vs-traditional-student-support|2026-08-16|Student Engagement Platforms vs. the Status Quo: What Connected Student Support Actually Changes\nlms-and-sis-integration-student-success-tools-technical-primer|2026-08-07|Integrating Student Success Tools with Your LMS and SIS: A Technical Primer\nchange-management-for-edtech-adoption-faculty-staff-buy-in|2026-08-02|Change Management for EdTech Adoption: Getting Faculty and Staff Buy-In\nhigher-education-data-governance-student-privacy-ethics|2026-07-26|Higher Education Data Governance: Balancing Student Privacy, Ethics, and Actionable Insight\nstudent-engagement-platform-rfp-template-essential-questions|2026-07-18|Student Engagement Platform RFP Template: Essential Questions to Ask Before You Buy\nevaluate-student-engagement-platforms-buyers-checklist|2026-07-11|How to Evaluate Student Engagement Platforms: A Buyer's Checklist for Campus Leaders\nmultilingual-students-in-higher-education-support-strategies|2026-07-04|Multilingual Students in Higher Ed: Supporting Non-Native English Speakers Beyond ESL\nveteran-student-support-military-to-college-transition|2026-06-27|From Barracks to Campus: Supporting Veteran Students Through the Military-to-College Transition\nhigher-education-disability-services-retention-strategy|2026-06-21|Disability Services as a Higher Education Retention Strategy: How Proactive Accessibility Support Improves Student Success\nlgbtq-student-belonging-campus-retention|2026-06-12|LGBTQ+ Student Belonging: Creating Affirming Campus Environments That Improve Retention\nhispanic-serving-institutions-student-retention-culturally|2026-06-05|Hispanic-Serving Institutions and Student Success: Culturally Responsive Retention Approaches\nadult-learner-retention-strategies-non-traditional-students|2026-05-29|Best Practices for Engaging Adult Learners: Retention Strategies for Non-Traditional Students Over 25\nschedule-supporting-campus-employment-and-student-retention-flexibility-drive-persistence|2026-05-21|Supporting Working Students: How Campus Employment and Schedule Flexibility Drive Persistence\ncommuter-student-engagement-strategies-off-campus-learners|2026-05-14|The Commuter Student Blind Spot: Engagement Strategies for Off-Campus Learners\nstackable-credentials-micro-credentials-designing-flexible-student-pathways|2026-05-06|Micro-Credentials and Stackable Pathways: Designing Flexible Student Journeys\ngender-enrollment-gap-male-college-students|2026-04-30|The Vanishing Male Student: Understanding and Reversing the Gender Enrollment Gap\nstrategic-enrollment-management-retention-unified-framework|2026-04-22|Strategic Enrollment Management Meets Retention: Building a Unified Framework\noutcome-based-funding-accountability-metrics-student-success|2026-04-15|Outcome-Based Funding: How New Accountability Metrics Are Changing Student Success Strategy\ncommunity-college-retention-strategies-two-year-institutions|2026-04-08|Community College Retention Playbook: Strategies That Work for Two-Year Institutions\nworkforce-pell-grants-student-pathways-2026-2027-vz4u|2026-04-01|How Workforce Pell Grants Will Reshape Student Pathways in 2026–2027\ncollege-athlete-mental-health-support-campuses|2026-03-25|On the Ball: Supporting Mental Health for College Athletes\nstudent-success-metrics-beyond-grades|2026-03-18|The Success Index: Tracking Student Success Beyond Grades\nvirtual-orientation-and-onboarding-welcoming-students|2026-03-10|Virtual Orientation and Onboarding: Welcoming Students in a Digital World\nvr-ar-student-engagement-immersive-learning|2026-03-03|Immersive Learning: How VR/AR Can Enhance Student Engagement\nstudent-sleep-deprivation-academic-performance-retention|2026-02-26|Better Sleep for Better Grades: How Campus Leaders Can Address Student Sleep Deprivation\ncampus-nutrition-programs-student-retention-academic-performance|2026-02-24|Fueling Success: How Campus Nutrition Programs Drive Student Retention and Academic Performance\nstudent-leadership-empowering-leaders-boost-engagement|2026-02-19|Student Leadership: Empowering Student Leaders to Boost Engagement\nfinancial-aid-for-low-income-students-first-generation|2026-02-17|Bridging the Financial Aid Gap: Supporting Low-Income and First-Generation Students\ninternational-student-retention-support-systems|2026-02-12|International Student Retention: Building Support Systems That Actually Work\nconnection-virtual-classroom-hybrid-learning-student-isolation-prevention|2026-02-10|Connection in the Virtual Classroom: Preventing Isolation in Hybrid Learning\npost-pandemic-student-support-strategies|2026-02-05|Beyond the Pandemic: New Student Support Strategies for the Post-COVID Era\ndigital-mental-health-tools-campus-leaders-expand-access|2026-02-03|Digital Mental Health Tools: How Campus Leaders Can Expand Mental Health Access Through Apps and Platforms\nbuilding-community-campus-events-for-student-engagement-and-social-isolation|2026-01-29|Building Community: Combatting Social Isolation with Campus Events\ncampus-safety-and-student-wellbeing-trauma-informed-practices|2026-01-27|Safe Campuses: Linking Safety Policies to Student Wellbeing\npeer-support-networks-student-led-mental-health-initiatives|2026-01-22|Peer Support Networks: Leveraging Student-Led Mental Health Initiatives\ncareer-readiness-retention-strategy-professional-development|2026-01-20|Career Readiness as a Retention Strategy: Integrating Professional Development into the Student Experience\nstrategies-engage-first-generation-college-students|2026-01-15|Closing the Gap: Strategies to Engage First-Generation College Students\nfaculty-mental-health-training-student-distress-support|2026-01-13|Faculty Allies: Training Professors to Recognize Student Distress and Connect Students to Support\nparental-involvement-in-college-success|2026-01-08|Parent Involvement in College: Does It Help or Hurt Student Success?\ncollege-gamification-benefits|2026-01-06|Gamified Learning in College: Do Engagement Apps Really Work?\ndata-on-student-success|2026-01-01|The Science of Student Success: What Data Says About Staying in College\ncollege-student-warning-signs|2025-12-30|Early Warning Signs: How to Tell if Your College Student is Struggling\ncollege-parenting-digital-balance|2025-12-25|College Parenting in the Digital Age: Balancing Involvement and Independence\ntransfer-student-success-tips-2025-guide|2025-12-23|Transfer Student Toolkit: Making the Most of Your New Campus\nhow-to-build-college-success-plan-first-year|2025-12-18|How to Build a Personalized College Success Plan for Your First Year\ncollege-time-management-tips|2025-12-16|Mastering Time Management in College — Strategies to Balance Study and Life\ncollege-stress-management-tips|2025-12-12|College Stress Management Tips That Actually Work\ncollege-belonging-tips|2025-12-09|College Belonging Tips: Find Your Campus Community\ncollege-student-resilience-strategies-setbacks|2025-12-06|College Student Resilience: Strategies to Overcome Setbacks and Thrive\ncollege-dropout-reasons|2025-12-05|Why College Students Drop Out: Top 5 College Dropout Reasons and How to Prevent Them\nfirst-semester-college-advice-parents-guide|2025-11-28|First Semester College Advice for Parents: Your Complete Guide\n8-dimensions-of-wellness-college|2025-11-26|8 Dimensions of Wellness in College: Your Complete Success Guide\nsupporting-college-student-mental-health-distance-parent-guide|2025-11-20|Supporting Your College Student's Mental Health from Afar: A Parent's Guide\nfreshman-year-college-tips-survival-guide|2025-11-18|Freshman Year College Tips: 10 Proven Ways to Thrive and Avoid Becoming a Dropout Statistic\ncollege-student-financial-wellness|2025-11-14|College Student Financial Wellness: Reduce Stress & Boost Success\nsupport-student-parents-college|2025-11-12|How to Support Student Parents in College: Proven Strategies for Success\nstop-out-students-re-enrollment-strategies|2025-11-06|Re-engaging the Stopped-Out: How to Bring Students Back\nfirst-generation-student-retention-strategies-equity-gaps|2025-11-04|First-Generation Student Retention Strategies That Close Equity Gaps\nstudent-retention-strategies-2035|2025-10-31|Student Retention Strategies for 2035: AI, Hybrid Models & Equity\nstudent-burnout-prevention-strategies|2025-10-29|Student Burnout Prevention Strategies: Balancing Rigor and Support\none-stop-student-services|2025-10-27|One Stop Student Services: Why Combining Services Boosts Student Success\ncampus-mental-health-programs-resilience|2025-10-23|Campus Mental Health Programs That Build Student Resilience\ncollege-student-basic-needs-insecurity|2025-10-21|Beyond Academics: Addressing College Student Basic Needs Insecurity\nstudent-engagement-analytics-participation-data-retention|2025-10-18|Student Engagement Analytics: Turning Participation Data Into Retention Results\nai-chatbots-in-student-advising|2025-10-11|AI Chatbots in Student Advising: Real Benefits and Honest Limitations\nintegrated-student-support-systems|2025-10-07|From Portals to Platforms: Integrating Student Support Systems\nuniversity-student-success|2025-10-03|Early Alert 2.0: Modernizing Campus Intervention Systems for University Student Success\nstudent-communication-strategies|2025-09-30|Nudges vs. Noise: Communicating Effectively with Today's Students\nstudent-engagement-strategies-gamification-in-higher-education|2025-09-25|Gamification in Higher Education: Do Small Rewards Boost Student Engagement?\nfirst-year-retention-strategies|2025-09-23|Orientation Is Not Enough: Sustaining First-Year Belonging All Year\nenrollment-cliff-2025-retention-strategies|2025-09-18|Beyond the Enrollment Cliff: 2025 Retention Strategies for Today and Beyond\nroi-of-student-success-programs|2025-09-16|Proving ROI: Measuring the Impact of Student Success Initiatives".split('\n').map(function (l) {
+    var a = l.split('|');
+    return { path: '/' + a[0] + '/', date: a[1], title: a[2], img: a[3] ? IMG + a[3] : '' };
+  });
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var MON3 = { Jan:1, Feb:2, Mar:3, Apr:4, May:5, Jun:6, Jul:7, Aug:8, Sep:9, Oct:10, Nov:11, Dec:12 };
+
+  function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function pad(n) { return ('0' + n).slice(-2); }
+  function normPath(href) {
+    var p; try { p = new URL(href, location.origin).pathname; } catch (e) { p = href; }
+    return p.replace(/\/*$/, '/');
+  }
+  function slugToTitle(path) {
+    return path.replace(/\//g, '').split('-').map(function (w) { return w ? w.charAt(0).toUpperCase() + w.slice(1) : w; }).join(' ');
+  }
+  function dateParts(iso) { var a = iso.split('-'); return { y: +a[0], m: +a[1], d: +a[2] }; }
+  function fmtDay(iso) { var p = dateParts(iso); return MONTHS[p.m - 1].slice(0, 3) + ' ' + p.d + ', ' + p.y; }
+
+  // Read title / date / image from a post page (only used for posts newer than the bundled list).
+  function hydrate(post) {
+    var key = 'cm-post-v1:' + post.path, c = lsGet(key);
+    if (c) { try { var o = JSON.parse(c); post.title = o.t || post.title; post.date = o.d || post.date; post.img = o.i || post.img; return Promise.resolve(post); } catch (e) {} }
+    return fetch(post.path, { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+      .then(function (html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var h1 = doc.querySelector('h1'), og = doc.querySelector('meta[property="og:image"]'), tm = doc.querySelector('.g-post-date time');
+        if (h1 && h1.textContent.trim()) post.title = h1.textContent.trim();
+        if (og && og.content) post.img = og.content;
+        var m = tm && tm.textContent.match(/([A-Za-z]{3})[a-z]*,?\s+(\d{1,2}),?\s+(\d{4})/);
+        if (m && MON3[m[1]]) post.date = m[3] + '-' + pad(MON3[m[1]]) + '-' + pad(m[2]);
+        lsSet(key, JSON.stringify({ t: post.title, d: post.date, i: post.img }));
+        return post;
+      })
+      .catch(function () { return post; });
+  }
+
+  // Resolves to every post, newest first: bundled list + anything new found in the sitemap.
+  function loadPosts(sitemapUrl) {
+    var byPath = {};
+    SEED.forEach(function (p) { byPath[p.path] = { path: p.path, date: p.date, title: p.title, img: p.img }; });
+    return fetch(sitemapUrl, { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+      .then(function (xml) {
+        var doc = new DOMParser().parseFromString(xml, 'application/xml'), urls = doc.getElementsByTagName('url'), fresh = [];
+        for (var i = 0; i < urls.length; i++) {
+          var loc = urls[i].getElementsByTagName('loc')[0], lm = urls[i].getElementsByTagName('lastmod')[0];
+          if (!loc) continue;
+          var path = normPath(loc.textContent.trim());
+          if (byPath[path]) continue;
+          var d = lm ? lm.textContent.trim().slice(0, 10) : '1970-01-01';
+          byPath[path] = { path: path, date: d, title: slugToTitle(path), img: '' };
+          fresh.push(byPath[path]);
+        }
+        fresh.sort(function (a, b) { return b.date.localeCompare(a.date); });
+        return Promise.all(fresh.slice(0, 20).map(hydrate));
+      })
+      .catch(function () {})
+      .then(function () {
+        return Object.keys(byPath).map(function (k) { return byPath[k]; })
+          .sort(function (a, b) { return b.date.localeCompare(a.date); });
+      });
+  }
+
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function render(posts) {
+    var groups = {}, order = [];
+    posts.forEach(function (p) {
+      var key = p.date.slice(0, 7);
+      if (!groups[key]) { groups[key] = []; order.push(key); }
+      groups[key].push(p);
+    });
+    order.sort().reverse();
+
+    var lastYear = null, first = null;
+    order.forEach(function (key, idx) {
+      var items = groups[key], year = key.slice(0, 4);
+      if (year !== lastYear) { listEl.appendChild(el('div', 'cm-archive__year', year)); lastYear = year; }
+      var d = document.createElement('details'), s = document.createElement('summary');
+      s.appendChild(el('span', null, MONTHS[parseInt(key.slice(5), 10) - 1] + ' ' + year));
+      s.appendChild(el('span', 'cm-archive__count', items.length + (items.length === 1 ? ' post' : ' posts')));
+      d.appendChild(s);
+      var ul = document.createElement('ul');
+      items.forEach(function (p) {
+        var li = document.createElement('li'), a = document.createElement('a');
+        a.href = p.path; a.textContent = p.title; li.appendChild(a);
+        var t = document.createElement('time');
+        t.setAttribute('datetime', p.date); t.textContent = fmtDay(p.date);
+        li.appendChild(t); ul.appendChild(li);
+      });
+      d.appendChild(ul); listEl.appendChild(d);
+      if (idx === 0) first = d;
+    });
+    if (OPEN_LATEST && first) first.open = true;
+    statusEl.hidden = true;
+  }
+
+  root.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-cm]');
+    if (!b) return;
+    var open = b.getAttribute('data-cm') === 'expand';
+    Array.prototype.forEach.call(listEl.querySelectorAll('details'), function (d) { d.open = open; });
+  });
+
+  loadPosts(SITEMAP).then(render).catch(function () {
+    statusEl.hidden = false;
+    statusEl.innerHTML = 'Couldn’t load the archive. <a href="' + SITEMAP + '">Browse the sitemap</a>.';
+  });
+})();
+</script>
