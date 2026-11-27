@@ -1,0 +1,62 @@
+<section class="cmw bg-cream" id="cm-media-01-news" aria-labelledby="cm-media-news-title">
+  <div class="wrap">
+    <p class="eyebrow">Latest</p>
+    <h2 id="cm-media-news-title">Announcements and updates</h2>
+    <div class="filters" role="group" aria-label="Show">
+      <button type="button" aria-pressed="true" data-filter="all">All</button>
+      <button type="button" aria-pressed="false" data-filter="announcement">Announcements</button>
+      <button type="button" aria-pressed="false" data-filter="press">Press releases</button>
+      <button type="button" aria-pressed="false" data-filter="quarterly">Quarterly updates</button>
+    </div>
+    <!-- To add an item: copy one <li class="news-item"> block, paste it at the top of the list,
+         and set data-type to announcement, press or quarterly. Newest first. -->
+    <ul class="news">
+      <li class="news-item" data-type="announcement">
+        <div class="news-meta">November 2026<br><span class="pill">Announcement</span></div>
+        <div>
+          <h3>The class check-in is live for the winter/spring pilot</h3>
+          <p>Faculty can now run a private class check-in in about 5 minutes of class time. Students scan one QR code, and the class sees anonymous totals once at least 5 have checked in. Free during the pilot.</p>
+          <div class="links"><a class="link" href="https://campusmind.io/joinpilot" target="_top">Join the pilot →</a><a class="link" href="/facultydevelopment/#cm-fd-01-demo" target="_top">Watch the 35-second demo →</a></div>
+        </div>
+      </li>
+      <li class="news-item" data-type="announcement">
+        <div class="news-meta">November 2026<br><span class="pill">Announcement</span></div>
+        <div>
+          <h3>Campus Mind completes the USI CDFI Bootcamp &amp; Pitch Challenge</h3>
+          <p>Campus Mind took part in the Sacramento cohort of the USI CDFI Bootcamp &amp; Pitch Challenge, which wrapped in early November.</p>
+        </div>
+      </li>
+      <li class="news-item" data-type="announcement">
+        <div class="news-meta">November 2026<br><span class="pill">Announcement</span></div>
+        <div>
+          <h3>A new campusmind.org, built for faculty</h3>
+          <p>The site now leads with faculty, with pages for students and for faculty development, and a privacy policy rewritten in plain language.</p>
+          <div class="links"><a class="link" href="/students/" target="_top">For students →</a><a class="link" href="/facultydevelopment/" target="_top">For faculty development →</a></div>
+        </div>
+      </li>
+      <li class="news-item" data-type="announcement">
+        <div class="news-meta">2026<br><span class="pill">Announcement</span></div>
+        <div>
+          <h3>Campus Mind completes NSF I-Corps</h3>
+          <p>Through the National Science Foundation's I-Corps program at the UC Davis Regional Hub, we interviewed faculty and administrators across Northern California about what they already do for student wellbeing.</p>
+          <div class="links"><a class="link" href="/about/" target="_top">Read how we got here →</a></div>
+        </div>
+      </li>
+    </ul>
+    <div class="news-empty" data-empty="press" hidden>No press releases yet. Writing a story? <a class="link" href="#cm-media-04-contact">Get in touch →</a></div>
+    <div class="news-empty" data-empty="quarterly" hidden>Quarterly updates start in 2027. Want them by email? <a class="link" href="mailto:Info@campusmind.io?subject=Quarterly%20updates" target="_top">Ask to be added →</a></div>
+  </div>
+</section>
+<script>
+(function(){
+  var s=document.getElementById('cm-media-01-news'); if(!s) return;
+  var btns=s.querySelectorAll('[data-filter]'), items=s.querySelectorAll('.news-item'), empties=s.querySelectorAll('[data-empty]');
+  function show(f){
+    var n=0;
+    items.forEach(function(i){var on=f==='all'||i.getAttribute('data-type')===f;i.hidden=!on;if(on)n++;});
+    empties.forEach(function(e){e.hidden=!(n===0&&e.getAttribute('data-empty')===f);});
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-filter')===f?'true':'false');});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-filter'));});});
+})();
+</script>

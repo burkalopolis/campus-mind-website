@@ -1,0 +1,69 @@
+<section class="cmw bg-white" id="cm-media-02-articles" aria-labelledby="cm-media-articles-title">
+  <div class="wrap">
+    <p class="eyebrow">From the blog</p>
+    <h2 id="cm-media-articles-title">Writing for everyone who supports students.</h2>
+    <div class="measure">
+      <p>Pick who you are to see where to start.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Articles by audience" hidden>
+      <button type="button" role="tab" id="cm-tab-faculty" aria-controls="cm-panel-faculty" aria-selected="true">For faculty</button>
+      <button type="button" role="tab" id="cm-tab-leaders" aria-controls="cm-panel-leaders" aria-selected="false">For campus leaders</button>
+      <button type="button" role="tab" id="cm-tab-students" aria-controls="cm-panel-students" aria-selected="false">For students</button>
+      <button type="button" role="tab" id="cm-tab-families" aria-controls="cm-panel-families" aria-selected="false">For families</button>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="cm-panel-faculty" aria-labelledby="cm-tab-faculty">
+      <h3 class="panel-title">For faculty</h3>
+      <ul class="reads">
+        <li><a class="read" href="/faculty-mental-health-training-student-distress-support/" target="_top"><strong>Faculty Allies: Training Professors to Recognize Student Distress and Connect Students to Support</strong><span>16 min read →</span></a></li>
+        <li><a class="read" href="/connection-virtual-classroom-hybrid-learning-student-isolation-prevention/" target="_top"><strong>Connection in the Virtual Classroom: Preventing Isolation in Hybrid Learning</strong><span>11 min read →</span></a></li>
+        <li><a class="read" href="/imposter-syndrome-in-college-students-belonging/" target="_top"><strong>Imposter Syndrome in College: Helping Students Believe They Belong</strong><span>15 min read →</span></a></li>
+        <li><a class="read" href="/mid-semester-pulse-surveys-student-disengagement-retention/" target="_top"><strong>Mid-Semester Pulse Surveys: Catching Disengagement Before It Becomes Dropout</strong><span>12 min read →</span></a></li>
+      </ul>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="cm-panel-leaders" aria-labelledby="cm-tab-leaders">
+      <h3 class="panel-title">For campus leaders</h3>
+      <ul class="reads">
+        <li><a class="read" href="/one-stop-student-services/" target="_top"><strong>One Stop Student Services: Why Combining Services Boosts Student Success</strong><span>11 min read →</span></a></li>
+        <li><a class="read" href="/college-student-basic-needs-insecurity/" target="_top"><strong>Beyond Academics: Addressing College Student Basic Needs Insecurity</strong><span>11 min read →</span></a></li>
+        <li><a class="read" href="/four-year-student-engagement-arc-orientation-to-commencement/" target="_top"><strong>From Orientation to Commencement: Designing a Four-Year Student Engagement Arc</strong><span>12 min read →</span></a></li>
+        <li><a class="read" href="/higher-education-data-governance-student-privacy-ethics/" target="_top"><strong>Higher Education Data Governance: Balancing Student Privacy, Ethics, and Actionable Insight</strong><span>15 min read →</span></a></li>
+      </ul>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="cm-panel-students" aria-labelledby="cm-tab-students">
+      <h3 class="panel-title">For students</h3>
+      <ul class="reads">
+        <li><a class="read" href="/8-dimensions-of-wellness-college/" target="_top"><strong>8 Dimensions of Wellness in College: Your Complete Success Guide</strong><span>9 min read →</span></a></li>
+        <li><a class="read" href="/college-stress-management-tips/" target="_top"><strong>College Stress Management Tips That Actually Work</strong><span>8 min read →</span></a></li>
+        <li><a class="read" href="/college-belonging-tips/" target="_top"><strong>College Belonging Tips: Find Your Campus Community</strong><span>8 min read →</span></a></li>
+        <li><a class="read" href="/college-time-management-tips/" target="_top"><strong>Mastering Time Management in College: Strategies to Balance Study and Life</strong><span>12 min read →</span></a></li>
+      </ul>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="cm-panel-families" aria-labelledby="cm-tab-families">
+      <h3 class="panel-title">For families</h3>
+      <ul class="reads">
+        <li><a class="read" href="/how-to-talk-to-your-college-student-about-money/" target="_top"><strong>How to Talk to Your College Student About Money Without Adding Stress</strong><span>12 min read →</span></a></li>
+        <li><a class="read" href="/ferpa-for-parents-college-access-rights/" target="_top"><strong>FERPA Demystified: What Parents Can and Cannot Access at Their Student&#x27;s College</strong><span>10 min read →</span></a></li>
+        <li><a class="read" href="/college-transfer-student-parents-guide/" target="_top"><strong>When Your Student Wants to Transfer: A Parent&#x27;s Guide to Supporting the Decision</strong><span>11 min read →</span></a></li>
+        <li><a class="read" href="/supporting-college-student-mental-health-distance-parent-guide/" target="_top"><strong>Supporting Your College Student&#x27;s Mental Health from Afar: A Parent&#x27;s Guide</strong><span>17 min read →</span></a></li>
+      </ul>
+    </div>
+    <div class="actions"><a class="link" href="/blog/" target="_top">See all posts →</a></div>
+  </div>
+</section>
+<script>
+(function(){
+  var s=document.getElementById('cm-media-02-articles'); if(!s) return;
+  var list=s.querySelector('[role=tablist]'), tabs=s.querySelectorAll('[role=tab]'), panels=s.querySelectorAll('[role=tabpanel]');
+  /* Without this script every list shows, one after another. With it, one audience at a time. */
+  list.hidden=false;
+  function pick(t){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;});
+    panels.forEach(function(p){p.hidden=p.id!==t.getAttribute('aria-controls');p.querySelector('.panel-title').hidden=true;});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){pick(t);});
+    t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){var n=tabs[(i+d+tabs.length)%tabs.length];n.focus();pick(n);}});
+  });
+  pick(tabs[0]);
+})();
+</script>

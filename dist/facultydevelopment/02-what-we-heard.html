@@ -119,6 +119,32 @@
 .cmw .card .who{display:block;margin-top:12px;font-size:14px;color:var(--ink)}
 .cmw .card .pill.soon{background:var(--mist)}
 .cmw .loop{display:block;width:100%;height:auto;border-radius:16px;background:var(--mist)}
+.cmw .filters{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0;padding:0;list-style:none}
+.cmw .filters button,.cmw .tabs button{min-height:40px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--white);font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:14px;font-weight:700;color:var(--night);cursor:pointer}
+.cmw .filters button[aria-pressed="true"],.cmw .tabs button[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.cmw .filters button:focus-visible,.cmw .tabs button:focus-visible{outline:2px solid var(--night);outline-offset:2px}
+.cmw .news{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:16px}
+.cmw .news-item{display:grid;grid-template-columns:140px 1fr;gap:24px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px}
+.cmw .news-meta{font-size:14px;font-weight:700;color:var(--ink)}
+.cmw .news-meta .pill{display:inline-block;margin-top:8px;background:var(--mist)}
+.cmw .news-item h3{margin:0 0 8px}
+.cmw .news-item p{max-width:none;margin:0 0 8px !important;font-size:16px}
+.cmw .news-item .links{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px}
+.cmw .news-empty{background:var(--white);border:1px dashed var(--line);border-radius:16px;padding:24px;color:var(--ink);font-size:16px}
+.cmw .tabs{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.cmw .panel-title{margin:32px 0 0;font-size:20px}
+.cmw .reads{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.cmw .read{display:flex;flex-direction:column;justify-content:space-between;gap:12px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px 24px;text-decoration:none;color:var(--night);transition:border-color .15s}
+.cmw .read:hover{border-color:var(--blue)}
+.cmw .read strong{font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:18px;line-height:1.35}
+.cmw .read span{font-size:14px;font-weight:700;color:var(--blue)}
+.cmw .facts-list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.cmw .facts-list li{display:grid;grid-template-columns:140px 1fr;gap:12px;font-size:16px}
+.cmw .facts-list b{color:var(--ink);font-weight:700}
+.cmw .contact-card{background:var(--cream);border-radius:16px;padding:32px}
+.cmw .contact-card h3{margin:20px 0 4px;font-size:17px}
+.cmw .contact-card h3:first-of-type{margin-top:8px}
+@media (max-width:900px){.cmw .news-item{grid-template-columns:1fr;gap:8px}.cmw .reads{grid-template-columns:1fr}}
 </style>
 <section class="cmw bg-white" id="cm-fd-02-heard" aria-labelledby="cm-fd-heard-title">
   <div class="wrap">

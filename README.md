@@ -33,7 +33,7 @@ Why each block carries its own styles: Grigora's Custom HTML block doesn't pick 
 
 ## Page and section index
 
-Status (Nov 27, 2026): Home, Students, About and Faculty Development are live as coded sections. Next: Media (new page). Blog needs no update.
+Status (Nov 27, 2026): Home, Students, About and Faculty Development are live as coded sections. Media (new page) code ready. Blog needs no update.
 
 ### Home (Faculty), `/`
 
@@ -87,6 +87,18 @@ The "Completed NSF I-Corps · UC Davis" badge and footer stay native.
 | Section 6 | `06-advisory-panel.html` | cm-fd-06-cap | mist | CAP intro; leads into the native form | Live |
 | CAP form | native Grigora form | `join-CAP` | mist | Stays native | Keep |
 | Section 7 | `07-closing-cta.html` | cm-fd-07-cta | white | Join the pilot, Join the CAP, share with a colleague | Live |
+
+### Media (new), `/media/`
+
+Grigora page created through the connection (page id c0458341-9351-4b0e-8d49-8632b10c716d, with title and search description). Add it to the header nav in Grigora.
+
+| Name | File | ID | Background | Notes | Status |
+|---|---|---|---|---|---|
+| Hero | `00-hero.html` | cm-media-00-hero | white | Media inquiries (jumps to Section 4), Follow on LinkedIn | Code ready |
+| Section 1 | `01-news.html` | cm-media-01-news | cream | Announcements, press releases, quarterly updates with filter buttons. To add an item, copy one `<li class="news-item">` to the top and set `data-type` | Code ready |
+| Section 2 | `02-articles.html` | cm-media-02-articles | white | Blog posts by audience (faculty, campus leaders, students, families), tabs | Code ready |
+| Section 3 | `03-follow.html` | cm-media-03-follow | mist | LinkedIn and Instagram, linked (no embedded feeds, so no social trackers) | Code ready |
+| Section 4 | `04-contact.html` | cm-media-04-contact | white | Press kit facts and a contact card | Code ready |
 
 ### Other pages
 
