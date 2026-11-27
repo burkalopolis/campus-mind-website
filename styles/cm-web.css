@@ -1,4 +1,4 @@
-/* Campus Mind section styles (cm-web) v1.12. Every rule is scoped to .cmw so nothing else on the site is affected. */
+/* Campus Mind section styles (cm-web) v1.13. Every rule is scoped to .cmw so nothing else on the site is affected. */
 .cmw{--blue:#4A6FA5;--blue-h:#3D5F8F;--gold:#D4A030;--night:#2E3060;--ink:#5B5E7A;--white:#FFFFFF;--cream:#F7F4EE;--mist:#EEF2F7;--line:#DCE3EC;box-sizing:border-box;width:100%;margin:0;font-family:"Nunito Sans",Arial,sans-serif;font-size:17px;line-height:1.6;color:var(--night);}
 .cmw *,.cmw *::before,.cmw *::after{box-sizing:inherit}
 .cmw.bg-white{background:var(--white)}.cmw.bg-cream{background:var(--cream)}.cmw.bg-mist{background:var(--mist)}
@@ -111,3 +111,6 @@
 .cmw .measure p,.cmw .measure .statement,.cmw .measure .sources{max-width:none}
 .cmw .measure .facts{grid-template-columns:repeat(3,1fr)}
 @media (max-width:900px){.cmw .measure .facts{grid-template-columns:1fr}}
+.cmw .founder p{max-width:none}
+.cmw .quote{font-style:normal !important;quotes:none}
+.cmw .quote::before,.cmw .quote::after{content:none !important;display:none !important}

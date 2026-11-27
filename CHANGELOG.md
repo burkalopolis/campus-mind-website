@@ -17,3 +17,4 @@
 - Eight-parts PDF moved from Google Drive to Grigora Files (root-files/campus-mind-eight-parts.pdf). Students hero and Section 1 link to it. Downloads count in GA4 as file_download (Enhanced measurement; a small onclick sends the event if the block runs in a frame).
 - About page indexed and built as five coded sections (styles v1.11: facts row, statement, sources, founder card, avatars, 2×2 cards). USI CDFI bootcamp changed from "current cohort" to completed. Let's talk now leads with Join the pilot.
 - Styles v1.12: paragraph spacing forced (Grigora strips it) and a shared text width (`.measure`, 820px) so text, facts and the sources box line up. Applied to About hero, Section 1 and Section 4.
+- About Section 3: founder quote changed from blockquote to div (Grigora's blockquote style added italics and an overlapping quote mark); bio runs the full width of the card. Styles v1.13.
