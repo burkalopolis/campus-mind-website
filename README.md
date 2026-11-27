@@ -62,6 +62,18 @@ Calls to action on Home: Hero (Try it in your class), Section 4 (Try it in your 
 
 Also via the Grigora connection: the page's search description says "nothing saved," which is no longer accurate (anonymous scores are saved). Proposed: "Take a free, private check-in across eight parts of college life and see your results right away. No name needed."
 
+### About, `/about/`
+
+| Name | File | ID | Background | Notes | Status |
+|---|---|---|---|---|---|
+| Hero | `00-hero.html` | cm-about-00-hero | white | Approved copy; second sentence of the headline in blue | Code ready |
+| Section 1 | `01-how-we-got-here.html` | cm-about-01-story | cream | Story, statement, three facts with icons, research sources | Code ready |
+| Section 2 | `02-what-we-believe.html` | cm-about-02-beliefs | mist | Four cards (2×2); "Students own their story" links to /students/ | Code ready |
+| Section 3 | `03-who-we-are.html` | cm-about-03-team | white | Founder card (photo, bio, quote) and three advisor cards | Code ready |
+| Section 4 | `04-programs-and-contact.html` | cm-about-04-contact | cream | USI bootcamp now "completed". Let's talk: Join the pilot (primary), syllabus statement (secondary), two email links | Code ready |
+
+The "Completed NSF I-Corps · UC Davis" badge and footer stay native.
+
 ### Faculty Development, `/facultydevelopment/`
 
 Next. Includes the 35-second demo video (see `drafts/classroom-with-demo-video.html`; poster in `assets/`).
