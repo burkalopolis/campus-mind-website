@@ -10,3 +10,4 @@
 - Repo created with styles, sections, build script and paste-ready `dist/` blocks.
 - Students page indexed; hero rebuilt with working buttons and a Doing/Being panel (styles v1.7: panel, chips, eight-part colors).
 - Students hero live. Section 1 (eight parts in Doing/Being columns with brand colors) ready; styles v1.8.
+- Students section 2: heading and check-in iframe combined in one block (id check-in); styles v1.9.

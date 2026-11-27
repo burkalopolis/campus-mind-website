@@ -1,0 +1,91 @@
+<style>
+.cmw{--blue:#4A6FA5;--blue-h:#3D5F8F;--gold:#D4A030;--night:#2E3060;--ink:#5B5E7A;--white:#FFFFFF;--cream:#F7F4EE;--mist:#EEF2F7;--line:#DCE3EC;box-sizing:border-box;width:100%;margin:0;font-family:"Nunito Sans",Arial,sans-serif;font-size:17px;line-height:1.6;color:var(--night);}
+.cmw *,.cmw *::before,.cmw *::after{box-sizing:inherit}
+.cmw.bg-white{background:var(--white)}.cmw.bg-cream{background:var(--cream)}.cmw.bg-mist{background:var(--mist)}
+.cmw .wrap{max-width:1100px;margin:0 auto;padding:72px 24px}
+.cmw h1,.cmw h2,.cmw h3{font-family:Nunito,"Nunito Sans",Arial,sans-serif;color:var(--night);margin:0 0 16px;line-height:1.15}
+.cmw h1{font-size:52px;font-weight:800;letter-spacing:-.01em}
+.cmw h2{font-size:36px;font-weight:700}
+.cmw h3{font-size:20px;font-weight:700}
+.cmw .accent{color:var(--blue)}
+.cmw .eyebrow{font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:14px;font-weight:700;color:var(--blue);margin:0 0 12px}
+.cmw p{margin:0 0 16px;max-width:680px}
+.cmw .lead{font-size:19px}
+.cmw .muted{font-size:15px;color:var(--ink)}
+.cmw .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;border:1.5px solid var(--blue);font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:14px;font-weight:600;line-height:1;text-decoration:none;transition:background-color .15s,color .15s}
+.cmw .btn-primary{background:var(--blue);color:#fff}.cmw .btn-primary:hover{background:var(--blue-h);border-color:var(--blue-h);color:#fff}
+.cmw .btn-secondary{background:transparent;color:var(--blue)}.cmw .btn-secondary:hover{background:var(--mist)}
+.cmw .link{color:var(--blue);font-weight:700;text-decoration:none}.cmw .link:hover{text-decoration:underline}
+.cmw a:focus-visible{outline:2px solid var(--night);outline-offset:3px}
+.cmw .actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin:24px 0 16px}
+.cmw .split{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.cmw .media img,.cmw .media video{display:block;width:100%;height:auto;border-radius:16px}
+.cmw .phone{max-width:260px;margin:0 auto}
+.cmw .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cmw .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px}
+.cmw .pill{display:inline-block;padding:4px 12px;border-radius:999px;background:var(--cream);font-size:13px;font-weight:700;color:var(--night)}
+.cmw .center{text-align:center}.cmw .center p{margin-left:auto;margin-right:auto}.cmw .center .actions{justify-content:center}
+@media (max-width:900px){.cmw .split{grid-template-columns:1fr;gap:40px}.cmw .cards{grid-template-columns:1fr}.cmw h1{font-size:40px}.cmw h2{font-size:30px}}
+@media (max-width:600px){.cmw .wrap{padding:48px 16px}.cmw h1{font-size:34px}.cmw h2{font-size:26px}.cmw .lead{font-size:17px}.cmw .actions .btn{width:100%}.cmw .phone{max-width:220px}}
+@media (prefers-reduced-motion:reduce){.cmw *{transition:none!important}}
+.cmw .cards{list-style:none;padding:0;margin:32px 0 0}
+.cmw .icon{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:999px;background:var(--mist);color:var(--blue);margin:0 0 16px}
+.cmw .icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cmw .card-quote{font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:18px;font-weight:700;line-height:1.4;color:var(--night);margin:0}
+.cmw .steps{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.cmw .step img{display:block;width:100%;height:300px;object-fit:contain;margin:0 auto}
+.cmw .step-label{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px auto 0;font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:17px;font-weight:700;color:var(--night);text-align:center}
+.cmw .num{display:inline-flex;align-items:center;justify-content:center;flex:0 0 28px;width:28px;height:28px;border-radius:999px;background:var(--blue);color:#fff;font-size:14px;font-weight:700}
+.cmw .note{display:flex;align-items:center;justify-content:center;gap:8px;max-width:none;margin:40px auto 0;font-size:15px;font-weight:700;color:var(--blue)}
+.cmw .note svg{flex:0 0 18px;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:900px){.cmw .steps{grid-template-columns:1fr;gap:40px}.cmw .step img{height:260px}}
+.cmw .rule{border:0;border-top:1px solid var(--line);max-width:680px;margin:48px auto 0}
+.cmw .rule + .note{margin-top:24px}
+.cmw .card h3{margin:0 0 8px}
+.cmw .card p{max-width:none;margin:0;font-size:16px}
+.cmw .note{flex-wrap:wrap;text-align:center}
+@media (max-width:900px){.cmw .step + .step{border-top:1px solid var(--line);padding-top:40px}}
+.cmw .split-video{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;margin-top:32px}
+.cmw .checklist{list-style:none;padding:0;margin:24px 0;display:grid;gap:20px}
+.cmw .checklist li{display:flex;gap:14px;align-items:flex-start}
+.cmw .checklist h3{font-size:18px;margin:2px 0 4px}
+.cmw .checklist p{margin:0;font-size:16px;color:var(--ink)}
+.cmw .video{margin:0}
+.cmw .video video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:16px;background:var(--mist);box-shadow:0 8px 32px rgba(46,48,96,.12)}
+.cmw .video figcaption{margin-top:8px;font-size:13px;color:var(--ink);text-align:right}
+@media (max-width:900px){.cmw .split-video{grid-template-columns:1fr;gap:32px}.cmw .split-video .video{order:-1}}
+.cmw .cards.two{grid-template-columns:repeat(2,1fr)}
+.cmw .banner{max-width:none;margin:32px 0 0 !important;padding:20px 24px;background:var(--white);border-left:4px solid var(--blue);border-radius:12px;font-size:17px;color:var(--night)}
+@media (max-width:900px){.cmw .cards.two{grid-template-columns:1fr}}
+.cmw .center p,.cmw .center>.wrap>div{margin-left:auto !important;margin-right:auto !important}
+.cmw .center .rule{margin:40px auto 24px !important}
+.cmw .wrap.flush-bottom{padding-bottom:16px}
+.cmw .panel{background:var(--cream);border-radius:16px;padding:24px}
+.cmw .panel-label{display:block;margin:0 0 10px;font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.cmw .chips{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-wrap:wrap;gap:10px}
+.cmw .chips:last-child{margin-bottom:0}
+.cmw .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--white);border:1px solid var(--line);font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:15px;font-weight:700;color:var(--night)}
+.cmw .dot{flex:0 0 12px;width:12px;height:12px;border-radius:999px}
+.cmw .d-physical{background:#D4897A}.cmw .d-emotional{background:#E8B484}.cmw .d-intellectual{background:#E8D98A}.cmw .d-social{background:#94C48A}.cmw .d-spiritual{background:#90C8D8}.cmw .d-environmental{background:#8A9AC4}.cmw .d-occupational{background:#A886B8}.cmw .d-financial{background:#D4A0B8}
+.cmw .parts{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:32px}
+.cmw .part-group h3{margin:0 0 4px}
+.cmw .part-list{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:12px}
+.cmw .part{display:flex;gap:14px;align-items:stretch;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.cmw .part .bar{flex:0 0 6px;border-radius:999px}
+.cmw .part strong{display:block;font-family:Nunito,"Nunito Sans",Arial,sans-serif;font-size:17px;color:var(--night)}
+.cmw .part .desc{display:block;font-size:15px;color:var(--ink)}
+@media (max-width:900px){.cmw .parts{grid-template-columns:1fr;gap:28px}}
+.cmw .embed{margin-top:32px}
+.cmw .embed iframe{display:block;width:100%;height:980px;border:0}
+</style>
+<section class="cmw bg-white" id="check-in" aria-labelledby="cm-students-checkin-title">
+  <div class="wrap">
+    <p class="eyebrow">Check-in</p>
+    <h2 id="cm-students-checkin-title">What's felt heavy for you lately?</h2>
+    <p class="lead">40 quick statements, about 5 minutes. Answer each part, tap Next, and your results show up right away.</p>
+    <div class="muted">Have a class code from your professor? Add it at the top. Your professor only ever sees class totals, never your answers.</div>
+    <div class="embed">
+      <iframe src="https://campusmind.io/" title="Campus Mind eight parts check-in" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>

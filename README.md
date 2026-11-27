@@ -54,9 +54,8 @@ Calls to action on Home: Hero (Try it in your class), Section 4 (Try it in your 
 | Name | File | ID | Background | Plan | Status |
 |---|---|---|---|---|---|
 | Hero | `00-hero.html` | cm-students-00-hero | white | Fix both buttons (today "Start with what feels heavy" points to #join-CAP and the PDF button to the faculty syllabus form). Add a Doing/Being panel of the eight parts | Live |
-| Section 1 | `01-eight-parts.html` | cm-students-01-parts | cream | Eight parts with descriptions in the Doing/Being grid, brand colors; PDF link. Fixed "Purposes" → "Purpose"; stray "1" removed | Code ready (v1.8) |
-| Section 2 | `02-check-in-intro.html` | cm-students-02-checkin | white | Short heading and how-to above the check-in: 40 statements, about 5 minutes, results right away, optional class code (professors see class totals only) | To do |
-| Check-in | `checkin-iframe.standalone.html` | `check-in` on its Grigora Section | white | Stays as is; the hero button jumps here | Live |
+| Section 1 | `01-eight-parts.html` | cm-students-01-parts | cream | Eight parts with descriptions in the Doing/Being grid, brand colors; PDF link | Live |
+| Section 2 | `02-check-in.html` | `check-in` (also set on its Grigora Section) | white | Heading, how-to and class-code note, with the check-in iframe in the same block. Replaces the separate iframe block | Code ready (v1.9) |
 | Section 3 | `03-your-information.html` | cm-students-03-privacy | mist | "Your information is yours." Update "When the class check-in launches" (it's live). Add the privacy policy link and the 988 line | To do |
 | Section 4 | `04-in-class.html` | cm-students-04-class | cream | Class check-in is live, not "2-minute pilot". Word cloud image gets alt text. "Share this with someone you care **about**". Small link for professors to Join the pilot | To do |
 
